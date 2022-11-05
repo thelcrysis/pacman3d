@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/obj/column.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/obj/floor.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/obj/wall.obj" type="ArrayMesh" id=3]
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1, 1.14828, 1 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.208939, 0.202073, 0.195721 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.204671, 0.20866, 0.207644 )
+
+[node name="MeshLibrary" type="Spatial"]
+
+[node name="column" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="column"]
+transform = Transform( 0.480945, 0, 0, 0, 2.46789, 0, 0, 0, 0.475118, -0.00254926, 0.49892, 0.00584087 )
+
+[node name="CollisionShape" type="CollisionShape" parent="column/StaticBody"]
+transform = Transform( 0.210706, 0, 0, 0, 0.177036, 0, 0, 0, 0.214292, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="floor" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77971, 0, 0 )
+mesh = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="floor"]
+transform = Transform( 2.44626, 0, 0, 0, 0.123736, 0, 0, 0, 2.4375, 0.00136101, 0.0263437, 0.00552242 )
+
+[node name="CollisionShape" type="CollisionShape" parent="floor/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00136101, 0.0263437, 0.00552242 )
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="wall" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0 )
+mesh = ExtResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="wall"]
+transform = Transform( 2.47996, 0, 0, 0, 2.37092, 0, 0, 0, 2.41534, -0.00328588, 0.512359, 0.00351679 )
+
+[node name="CollisionShape" type="CollisionShape" parent="wall/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="floor3x3" type="MeshInstance" parent="."]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 4.5, 0, 0.5 )
+mesh = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="floor3x3"]
+transform = Transform( 2.44626, 0, 0, 0, 0.123736, 0, 0, 0, 2.4375, 0.00136101, 0.0263437, 0.00552242 )
+
+[node name="CollisionShape" type="CollisionShape" parent="floor3x3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00136101, 0.0263437, 0.00552242 )
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
