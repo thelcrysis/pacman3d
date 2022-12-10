@@ -8,6 +8,7 @@
 - [ ] Model duhova
 - [ ] Autonomno kretanje duhova
   - [ ] Strategije kretanja duhova
+- [ ] Dodati hranu
 
 #### Optional
 - [ ] fixati poklapanje collision shapeova i mesh instancea na gridmapu
