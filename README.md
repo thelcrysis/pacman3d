@@ -6,9 +6,10 @@
 - [ ] Dodati hranu 
 #
 #### Lik
-- [ ] Character Movement
+- [x] Character Movement
+  - [ ] [OPTIONAL] Promijeniti FOV i brzinu da se kretnja cini prirodnija
 - [ ] Model lika
-- [ ] Kamera iz POV
+- [x] Kamera iz POV
 #
 #### Tok igre
 - [ ] Izmjena faza
