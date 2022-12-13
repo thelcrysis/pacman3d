@@ -2,7 +2,8 @@
 
 # Todo
 ### Main
-- [ ] Portal
+- [x] Portal
+  - [ ] Portal grafika na ulazima
 - [ ] Dodati hranu 
 #
 #### Lik
