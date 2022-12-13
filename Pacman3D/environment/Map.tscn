@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://environment/MeshLibrary.tres" type="MeshLibrary" id=1]
+[ext_resource path="res://scripts/Steve.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=4]
+
+[sub_resource type="BoxShape" id=5]
+
+[sub_resource type="CapsuleShape" id=6]
+radius = 0.25
+height = 0.5
 
 [node name="Map" type="GridMap"]
 mesh_library = ExtResource( 1 )
+physics_material = SubResource( 4 )
 cell_size = Vector3( 0.5, 0.5, 0.5 )
 cell_octant_size = 4
 cell_center_x = false
@@ -16,3 +26,21 @@ __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
+
+[node name="Steve" type="KinematicBody" parent="."]
+transform = Transform( 0.775146, 0, 0, 0, 0.775146, 0, 0, 0, 0.775146, 0.49984, 0.625743, 0 )
+script = ExtResource( 2 )
+
+[node name="Feet" type="CollisionShape" parent="Steve"]
+transform = Transform( 0.2, 0, 0, 0, 0.05, 0, 0, 0, 0.2, 0, -0.5, 0 )
+shape = SubResource( 5 )
+
+[node name="Body" type="CollisionShape" parent="Steve"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="Pivot" type="Spatial" parent="Steve"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.112987, 0 )
+
+[node name="Camera" type="Camera" parent="Steve/Pivot"]
+fov = 55.8
