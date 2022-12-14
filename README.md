@@ -3,19 +3,24 @@
 # Todo
 ### Main
 - [x] Portal
-  - [ ] Portal grafika na ulazima
-- [ ] Dodati hranu 
+  - [ ] [OPTIONAL] Portal grafika na ulazima
+- [ ] Dodati hranu
+  - [x] napraviti model hrane
+    - [ ] [OPTIONAL] dodati da model svijetli - najvj vizualno ugodno `Food.tscn`
+    - [ ] dodati hranu na svim lokacijama -> `SpawnFood.gd`
+    - [ ] [OPTIONAL] smanjiti hranu ako bude lose izgledala s duhovima - npr. previse ih prekriva
+  - [x] handle kolizije igraca i hrane
 #
 #### Lik
 - [x] Character Movement
   - [ ] [OPTIONAL] Promijeniti FOV i brzinu da se kretnja cini prirodnija
-- [ ] Model lika
+- [ ] [OPTIONAL: nikad nije vidljivo] Model lika
 - [x] Kamera iz POV
 #
 #### Tok igre
 - [ ] Izmjena faza
   - [ ] Promjena osvjetljenja ovisno o fazi
-- [ ] Postavljanje scorea
+- [x] Postavljanje scorea
 - [ ] Detekcija kraja igre
 #
 #### Duhovi
@@ -23,10 +28,10 @@
 - [ ] Autonomno kretanje duhova
 - [ ] Postaviti prototype strategiju kretanja duhova
   - [ ] Implementirati duhove
+    - [ ] Duhovi prolaze kroz hranu
 #
 
-#### Optional
-- [ ] fixati poklapanje collision shapeova i mesh instancea na gridmapu
+#### Misc
 
 #
 
