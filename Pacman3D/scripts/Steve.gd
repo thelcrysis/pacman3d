@@ -33,6 +33,7 @@ func _unhandled_input(event):
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
 
 func _physics_process(delta):
+	print(self.transform.origin);
 	if self.transform.origin.z < -11.75:
 		self.transform.origin.z = 8.5;
 	if self.transform.origin.z > 8.75:
