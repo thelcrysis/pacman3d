@@ -22,6 +22,7 @@
   - [ ] Promjena osvjetljenja ovisno o fazi
 - [x] Postavljanje scorea
 - [x] Detekcija kraja igre
+  - [ ] Odluciti sto napraviti po kraju igre (trenutno prikaze timer u kutu i tjt)
 #
 #### Duhovi
 - [ ] Model duhova
