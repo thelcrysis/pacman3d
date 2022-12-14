@@ -21,7 +21,7 @@
 - [ ] Izmjena faza
   - [ ] Promjena osvjetljenja ovisno o fazi
 - [x] Postavljanje scorea
-- [ ] Detekcija kraja igre
+- [x] Detekcija kraja igre
 #
 #### Duhovi
 - [ ] Model duhova
