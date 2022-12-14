@@ -26,6 +26,7 @@ ao_texture_channel = 0
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
 
 [node name="Food" type="RigidBody" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 physics_material_override = SubResource( 1 )
 contacts_reported = 2
 contact_monitor = true
