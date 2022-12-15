@@ -4,10 +4,10 @@
 ### Main
 - [x] Portal
   - [ ] [OPTIONAL] Portal grafika na ulazima
-- [ ] Dodati hranu
+- [x] Dodati hranu
   - [x] napraviti model hrane
     - [ ] [OPTIONAL] dodati da model svijetli - najvj vizualno ugodno `Food.tscn`
-    - [ ] dodati hranu na svim lokacijama -> `SpawnFood.gd`
+    - [x] dodati hranu na svim lokacijama -> `SpawnFood.gd`
     - [ ] [OPTIONAL] smanjiti hranu ako bude lose izgledala s duhovima - npr. previse ih prekriva
   - [x] handle kolizije igraca i hrane
 #
@@ -22,7 +22,7 @@
   - [ ] Promjena osvjetljenja ovisno o fazi
 - [x] Postavljanje scorea
 - [x] Detekcija kraja igre
-  - [ ] Odluciti sto napraviti po kraju igre (trenutno prikaze timer u kutu i tjt)
+  - [ ] [OPTIONAL] Odluciti sto napraviti po kraju igre (trenutno prikaze timer u kutu i tjt)
 #
 #### Duhovi
 - [ ] Model duhova
