@@ -25,7 +25,7 @@
   - [ ] [OPTIONAL] Odluciti sto napraviti po kraju igre (trenutno prikaze timer u kutu i tjt)
 #
 #### Duhovi
-- [ ] Model duhova
+- [x] Model duhova
 - [ ] Autonomno kretanje duhova
 - [ ] Postaviti prototype strategiju kretanja duhova
   - [ ] Implementirati duhove
