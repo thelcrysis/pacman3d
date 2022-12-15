@@ -7,6 +7,7 @@ var max_speed = 4
 var mouse_sensitivity = 0.001  # radians/pixel
 
 var velocity = Vector3()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
@@ -32,7 +33,11 @@ func _unhandled_input(event):
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
 
 func _physics_process(delta):
-	velocity.y += gravity * delta
+	print(self.transform.origin);
+	if self.transform.origin.z < -11.75:
+		self.transform.origin.z = 8.5;
+	if self.transform.origin.z > 8.75:
+		self.transform.origin.z = -11.5;
 	var desired_velocity = get_input() * max_speed
 
 	velocity.x = desired_velocity.x
