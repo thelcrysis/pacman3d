@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://environment/MeshLibrary.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://scripts/Steve.gd" type="Script" id=2]
 [ext_resource path="res://scripts/SpawnFood.gd" type="Script" id=3]
+[ext_resource path="res://environment/Ghost.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PhysicsMaterial" id=4]
 
@@ -54,3 +55,6 @@ margin_right = 124.0
 margin_bottom = 95.0
 rect_scale = Vector2( 1.5, 1.5 )
 scroll_active = false
+
+[node name="Ghost" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.554107, 0.110487, -1.69644 )
