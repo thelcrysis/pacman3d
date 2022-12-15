@@ -8,7 +8,7 @@ func _ready():
 
 func _on_Food_body_entered(body):
 	
-	if body.name == "Steve":
+	if body.name == "Steve" or body.name == "Food":
 		Global.increment();
 		if Global.get_food_left() != 0:
 			# else Global sets label to elapsed time
