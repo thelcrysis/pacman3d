@@ -33,7 +33,12 @@ func _unhandled_input(event):
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
 
 func _physics_process(delta):
-	print(self.transform.origin);
+	#print(self.transform.origin);
+	# wrong place for this :shrug:
+	var current_time = Time.get_ticks_msec();
+	if current_time - Global.last_phase_change > 15*1000:
+		Global.switch_phase();# chase -> frightene -> chase
+	
 	if self.transform.origin.z < -11.75:
 		self.transform.origin.z = 8.5;
 	if self.transform.origin.z > 8.75:

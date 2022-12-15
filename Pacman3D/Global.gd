@@ -7,6 +7,10 @@ var score = 0
 var N_food = 0
 var start_time = Time.get_ticks_msec();
 
+enum Phase {CHASE, FRIGHTENED};
+var current_phase = Phase.CHASE;
+var last_phase_change = Time.get_ticks_msec();
+
 func time_to_str(time):
 	# adds 0 if needed (from 0:0:3.342 to 00:00:03.342) 
 	if time < 10:
@@ -23,9 +27,7 @@ func from_msec_to_humanreadable(msec_time):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("I'm the Global ready function")
-	
-	pass # Replace with function body.
+	pass
 	
 func increment():
 	score+=1;
@@ -35,6 +37,10 @@ func increment():
 		print(from_msec_to_humanreadable(delta))
 		fll.text = from_msec_to_humanreadable(delta);
 		
+func switch_phase():
+	current_phase = (current_phase + 1)%2 # chase -> frightene -> chase
+	print(current_phase)
+	last_phase_change = Time.get_ticks_msec();
 
 func get_score() -> int:
 	return score;
