@@ -18,8 +18,9 @@
 - [x] Kamera iz POV
 #
 #### Tok igre
-- [ ] Izmjena faza
+- [x] Izmjena faza
   - [ ] Promjena osvjetljenja ovisno o fazi
+  - [ ] Promjena ponasanja duhova ovisno o fazi
 - [x] Postavljanje scorea
 - [x] Detekcija kraja igre
   - [ ] [OPTIONAL] Odluciti sto napraviti po kraju igre (trenutno prikaze timer u kutu i tjt)
@@ -27,7 +28,7 @@
 #### Duhovi
 - [x] Model duhova
 - [ ] Autonomno kretanje duhova
-- [ ] Postaviti prototype strategiju kretanja duhova
+- [ ] Postaviti prototype strategiju kretanja duhova (natjerati duha da se krece na bilo koji nacin, ali da je kretanje definirano unutar skripte)
   - [ ] Implementirati duhove
     - [ ] Duhovi prolaze kroz hranu
 #
