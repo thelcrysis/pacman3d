@@ -14,7 +14,7 @@ func _on_Food_body_entered(body):
 		Global.increment();
 		if Global.get_food_left() != 0:
 			# else Global sets label to elapsed time
-			flLabel.text = str(Global.get_food_left()) + " food left\n";
+			flLabel.text = str(Global.get_food_left()) + " food left\nGhost status:\n";
 			if Global.current_phase == Global.Phase.CHASE:
 				flLabel.text += "CHASE"
 			elif Global.current_phase == Global.Phase.FRIGHTENED:
