@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/snd_fragment_retrievewav-14728.mp3-265f065a71128ca133c2f8cd4abe5c4f.mp3str"
+
+[deps]
+
+source_file="res://assets/snd_fragment_retrievewav-14728.mp3"
+dest_files=[ "res://.import/snd_fragment_retrievewav-14728.mp3-265f065a71128ca133c2f8cd4abe5c4f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

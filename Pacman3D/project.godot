@@ -18,6 +18,15 @@ config/icon="res://icon.png"
 
 Global="*res://Global.gd"
 
+[editor]
+
+version_control_autoload_on_startup=true
+version_control_plugin_name="GitAPI"
+
+[gdnative]
+
+singletons=[  ]
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
@@ -52,6 +61,13 @@ strafe_right={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="Environment"
+3d_physics/layer_2="Ghosts"
+3d_physics/layer_3="Food"
+3d_physics/layer_4="Player"
 
 [physics]
 
