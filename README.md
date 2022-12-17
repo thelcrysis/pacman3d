@@ -31,7 +31,7 @@
 - [x] Postaviti prototype strategiju kretanja duhova 
 - [ ] Implementirati duhove
   - [x] Blinky
-  - [ ] Inky
+  - [x] Inky
   - [ ] Pinky
   - [ ] Clyde
   - [x] Duhovi prolaze kroz hranu
