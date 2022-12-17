@@ -71,6 +71,7 @@ func increment_life():
 		lives += 1
 		if lives > 3:
 			lives = 3
+	helt.text = visualize_lives()
 	
 
 func switch_phase():

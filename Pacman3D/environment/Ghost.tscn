@@ -12,7 +12,7 @@ collision_layer = 2
 collision_mask = 9
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.95917, 0, 0, 0, -4.19266e-08, -0.95917, 0, 0.95917, -4.19266e-08, 0, 1.52348, 0 )
+transform = Transform( 0.984313, 0, 0, 0, -4.30256e-08, -0.984313, 0, 0.984313, -4.30256e-08, 0, 1.52348, 0 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
