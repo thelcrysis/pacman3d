@@ -1,13 +1,18 @@
 extends Node
 onready var fll = get_node("/root/Map/FoodLeftLabel")
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 var score = 0
 var N_food = 0
 var start_time = Time.get_ticks_msec();
+
 var player_local_location;
 var player_global_location;
+
+var blinky_local_loc;
+var inky_local_loc;
+var pinky_local_loc;
+var clyde_local_loc;
+
 
 enum Phase {CHASE, FRIGHTENED};
 var current_phase = Phase.CHASE;

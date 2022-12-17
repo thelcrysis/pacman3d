@@ -1,17 +1,51 @@
 extends Node
 
 
+
+static func at(coord):
+	# returns content of world tile at coord
+	# 0 for wall, 1 for floor
+	var world = [[1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1], [1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1], [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1], [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1], [1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1], [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1], [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1], [1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1], [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], [1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1], [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1], [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1], [1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1], [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1], [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1], [1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1], [1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1]]
+	var minX = 0
+	var maxX = len(world[0]) -1
+	var minY = 0
+	var maxY = len(world) - 1
+	if (minY <= coord.y and coord.x <= maxY) and (minX <= coord.x  and coord.x <= maxX):
+		return world[coord.y][coord.x]
+	else:
+		return null
+	return 
+
+static func getClosestFloorLocation(coord):
+	var i = 1
+	var modifiers = [[-1,0],[0, 1],[1, 0],[0, -1]]
+	while true:
+		var start = [coord.x+i, coord.y-i]
+		for side in range(4):
+			var m = modifiers[side]
+			for cell in range(i*2):
+				start[0] += m[0]
+				start[1] += m[1]
+				if at(Vector2(start[0],start[1])) == 1:
+					return Vector2(start[0], start[1])
+		i+=1
+
 static func getLocalFromGlobalCoord(global):
 	
 	var local = Vector2();
 	local.x = int((abs(global.x+11.8)/(11.8+7.8))*20)
 	local.y = int((abs(global.z+10.8)/(10.8+7.8))*19)
+	# portal patch
+	if local.y == 19:
+		local.y = 18
+	if local.x == 20:
+		local.x = 19
 	return local
 
 static func getGlobalFromLocalCoord(local, height):
 	var global = Vector3();
 	global.x = local.x*((11.8+7.8)/19) -11.8
-	global.z = (local.y)*((10.8+7.8)/18) -10.8
+	global.z = local.y*((10.8+7.8)/18) -10.8
 	global.y = height
 	return global
 
