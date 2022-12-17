@@ -3,7 +3,7 @@ onready var fll = get_node("/root/Map/FoodLeftLabel")
 onready var helt = get_node("/root/Map/Helt")
 onready var audiogood = get_node("/root/Map/goodsound")
 onready var audiobad = get_node("/root/Map/badsound")
-
+onready var lightswitch = get_node("/root/Map/WorldLighting")
 var score = 0
 var N_food = 0
 var start_time = Time.get_ticks_msec();
@@ -75,6 +75,7 @@ func increment_life():
 
 func switch_phase():
 	if Global.lives > 0 and Global.get_food_left() > 0:
+		lightswitch.switch_colorscheme()
 		current_phase = (current_phase + 1)%2 # chase -> frightene -> chase
 		last_phase_change = Time.get_ticks_msec();
 		
