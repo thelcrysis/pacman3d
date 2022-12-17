@@ -74,15 +74,17 @@ func increment_life():
 	
 
 func switch_phase():
-	current_phase = (current_phase + 1)%2 # chase -> frightene -> chase
-	last_phase_change = Time.get_ticks_msec();
-	fll.text = str(Global.get_food_left()) + " food left\n";
-	if Global.current_phase == Global.Phase.CHASE:
-		audiobad.play()
-		fll.text += "CHASE"
-	elif Global.current_phase == Global.Phase.FRIGHTENED:
-		audiogood.play()
-		fll.text += "FRIGHTENED"
+	if Global.lives > 0 and Global.get_food_left() > 0:
+		current_phase = (current_phase + 1)%2 # chase -> frightene -> chase
+		last_phase_change = Time.get_ticks_msec();
+		
+		fll.text = str(Global.get_food_left()) + " food left\n";
+		if Global.current_phase == Global.Phase.CHASE:
+			audiobad.play()
+			fll.text += "CHASE"
+		elif Global.current_phase == Global.Phase.FRIGHTENED:
+			audiogood.play()
+			fll.text += "FRIGHTENED"
 			
 func get_score() -> int:
 	return score;
