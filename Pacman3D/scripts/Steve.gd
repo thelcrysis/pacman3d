@@ -2,6 +2,8 @@ extends KinematicBody
 
 onready var camera = $Pivot/Camera
 
+const PF = preload("res://scripts/PathFinding.gd")
+
 var gravity = -30
 var max_speed = 4
 var mouse_sensitivity = 0.001  # radians/pixel
@@ -33,11 +35,15 @@ func _unhandled_input(event):
 		$Pivot.rotation.x = clamp($Pivot.rotation.x, -1.2, 1.2)
 
 func _physics_process(delta):
-	#print(self.transform.origin);
+	var local = PF.getLocalFromGlobalCoord(self.transform.origin)
+	var global = PF.getGlobalFromLocalCoord(local)
+	print(global, local, self.transform.origin);
+	#print(self.transform.origin)
+	Global.player_location = local;
 	# wrong place for this :shrug:
 	var current_time = Time.get_ticks_msec();
 	if current_time - Global.last_phase_change > 15*1000:
-		Global.switch_phase();# chase -> frightene -> chase
+		Global.switch_phase();# chase -> frightened -> chase
 	
 	if self.transform.origin.z < -11.75:
 		self.transform.origin.z = 8.5;

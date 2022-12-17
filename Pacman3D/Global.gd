@@ -6,6 +6,7 @@ onready var fll = get_node("/root/Map/FoodLeftLabel")
 var score = 0
 var N_food = 0
 var start_time = Time.get_ticks_msec();
+var player_location;
 
 enum Phase {CHASE, FRIGHTENED};
 var current_phase = Phase.CHASE;

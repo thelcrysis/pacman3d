@@ -16,6 +16,7 @@ func load_food():
 	fll.text = str(Global.get_food_left()) + " food left";
 
 func _ready():
+	print('wot')
 	if not isFoodLoaded:
 		load_food();
 		isFoodLoaded = true;
