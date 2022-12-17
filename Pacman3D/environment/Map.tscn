@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://environment/MeshLibrary.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://environment/Steve.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://environment/WorldLighting.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/pacman_chomp.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/pacman_death.wav" type="AudioStream" id=10]
+[ext_resource path="res://environment/Portal.tscn" type="PackedScene" id=11]
 
 [sub_resource type="PhysicsMaterial" id=4]
 
@@ -115,6 +116,12 @@ volume_db = -15.0
 [node name="death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = -15.796
+
+[node name="Portal" parent="." instance=ExtResource( 11 )]
+transform = Transform( -0.00999471, 0.000324995, -8.16405e-06, 0, -0.000251127, -0.00999685, -0.000325097, -0.00999156, 0.000250994, -1.44239, 0.53311, 9.8124 )
+
+[node name="Portal2" parent="." instance=ExtResource( 11 )]
+transform = Transform( -0.00999471, 0.000324995, -8.16405e-06, 0, -0.000251127, -0.00999685, -0.000325097, -0.00999156, 0.000250994, -1.44239, 0.605577, -12.3776 )
 
 [editable path="Blinky"]
 [editable path="Pinky"]

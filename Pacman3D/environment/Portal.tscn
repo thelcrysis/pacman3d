@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/obj/portalbutton.obj" type="ArrayMesh" id=1]
+
+[node name="Portal" type="MeshInstance"]
+mesh = ExtResource( 1 )
