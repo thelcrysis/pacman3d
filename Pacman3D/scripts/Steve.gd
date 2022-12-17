@@ -83,5 +83,5 @@ func _physics_process(delta):
 				Global.increment_life()
 		elif Global.current_phase == Global.Phase.FRIGHTENED:
 				Global.remove_life()
-	if Global.lives > 0:
+	if Global.lives > 0 and Global.get_food_left() > 0:
 		velocity = move_and_slide(velocity, Vector3.UP, true)
