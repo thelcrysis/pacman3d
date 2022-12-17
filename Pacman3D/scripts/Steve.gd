@@ -38,8 +38,6 @@ func _physics_process(delta):
 	var local = PF.getLocalFromGlobalCoord(self.transform.origin)
 	Global.player_local_location = local;
 	Global.player_global_location = self.transform.origin
-	print(local, Global.clyde_local_loc);
-	#print(self.transform.origin)
 	if Global.player_local_location != local:
 		var d_x = local.x - Global.player_local_location.x 
 		var d_y = local.y - Global.player_local_location.y 
@@ -64,12 +62,11 @@ func _physics_process(delta):
 	# GAME PHASE SWITCHING
 	var wait = 0
 	if Global.last_phase_change == Global.Phase.CHASE:
-		wait = 20 
+		wait = 5
 	else:
 		wait = 5
 	if current_time - Global.last_phase_change > wait*1000:
 		Global.switch_phase();# chase -> frightened -> chase
-		print(Global.current_phase)
 	
 	# PORTAL
 	if self.transform.origin.z < -11.75:
@@ -77,7 +74,12 @@ func _physics_process(delta):
 	if self.transform.origin.z > 8.75:
 		self.transform.origin.z = -11.5;
 	var desired_velocity = get_input() * max_speed
-	
+	var coll = get_last_slide_collision();
 	velocity.x = desired_velocity.x
 	velocity.z = desired_velocity.z
-	velocity = move_and_slide(velocity, Vector3.UP, true)
+	
+	if coll != null and get_last_slide_collision().collider.name in ["Blinky", "Pinky", "Inky", "Clyde"]:
+		if Global.current_phase == Global.Phase.FRIGHTENED:
+				Global.increment_life()
+	if Global.lives > 0:
+		velocity = move_and_slide(velocity, Vector3.UP, true)

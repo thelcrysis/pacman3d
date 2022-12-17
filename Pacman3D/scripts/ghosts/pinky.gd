@@ -60,13 +60,13 @@ func _process(delta):
 		direction = goal_global_loc - loc;
 		direction = direction.normalized() * speed;
 	else:
-		direction = goal_global_loc - goal_global_loc;
+		direction = goal_global_loc - loc;
 		
 	# COLLISION HANDLING
 	var coll = get_last_slide_collision();
 	if coll != null and get_last_slide_collision().collider.name == 'Steve':
-		# CAUGHT PLAYER DETECTION
-		print("PINKY GOTYA BITCH")
-		Global.remove_life()
-	move_and_slide(direction);
+		if Global.current_phase == Global.Phase.CHASE:
+			Global.remove_life()
+	if Global.lives != 0:
+		move_and_slide(direction);
 	

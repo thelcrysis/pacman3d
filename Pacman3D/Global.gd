@@ -1,6 +1,8 @@
 extends Node
 onready var fll = get_node("/root/Map/FoodLeftLabel")
 onready var helt = get_node("/root/Map/Helt")
+onready var audiogood = get_node("/root/Map/goodsound")
+onready var audiobad = get_node("/root/Map/badsound")
 
 var score = 0
 var N_food = 0
@@ -21,6 +23,7 @@ enum Phase {CHASE, FRIGHTENED};
 var current_phase = Phase.CHASE;
 var last_phase_change = Time.get_ticks_msec();
 var last_death = null;
+var last_kill = null;
 func time_to_str(time):
 	# adds 0 if needed (from 0:0:3.342 to 00:00:03.342) 
 	if time < 10:
@@ -57,16 +60,30 @@ func increment():
 		fll.text = from_msec_to_humanreadable(delta);
 
 func remove_life():
-	if last_death == null or Time.get_ticks_msec() - last_death > 10*1000:
+	if last_death == null or Time.get_ticks_msec() - last_death > 3*1000:
 		lives -= 1
 		last_death = Time.get_ticks_msec()
 	helt.text = visualize_lives()
 
+func increment_life():
+	if last_kill == null or Time.get_ticks_msec() - last_kill > 5*1000:
+		last_kill = Time.get_ticks_msec() 
+		lives += 1
+		if lives > 3:
+			lives = 3
+	
+
 func switch_phase():
 	current_phase = (current_phase + 1)%2 # chase -> frightene -> chase
-	print(current_phase)
 	last_phase_change = Time.get_ticks_msec();
-
+	fll.text = str(Global.get_food_left()) + " food left\n";
+	if Global.current_phase == Global.Phase.CHASE:
+		audiobad.play()
+		fll.text += "CHASE"
+	elif Global.current_phase == Global.Phase.FRIGHTENED:
+		audiogood.play()
+		fll.text += "FRIGHTENED"
+			
 func get_score() -> int:
 	return score;
 
