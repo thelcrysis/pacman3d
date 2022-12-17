@@ -31,6 +31,7 @@
 - [ ] Postaviti prototype strategiju kretanja duhova (natjerati duha da se krece na bilo koji nacin, ali da je kretanje definirano unutar skripte)
   - [ ] Implementirati duhove
     - [ ] Duhovi prolaze kroz hranu
+- [ ] [OPTIONAL--] Mijenjaju boju pri promjeni faza
 #
 
 #### Misc
