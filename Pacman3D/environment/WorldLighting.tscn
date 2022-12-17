@@ -37,3 +37,7 @@ light_indirect_energy = 2.174
 light_specular = 2.555
 shadow_enabled = true
 shadow_color = Color( 0.12549, 0.145098, 0.12549, 1 )
+directional_shadow_split_1 = 0.467
+directional_shadow_blend_splits = true
+directional_shadow_normal_bias = 0.05
+directional_shadow_depth_range = 1
