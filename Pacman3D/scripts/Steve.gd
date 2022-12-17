@@ -36,15 +36,17 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	var local = PF.getLocalFromGlobalCoord(self.transform.origin)
-	var global = PF.getGlobalFromLocalCoord(local)
-	print(global, local, self.transform.origin);
+	#print(global, local, self.transform.origin);
 	#print(self.transform.origin)
-	Global.player_location = local;
+	Global.player_local_location = local;
+	Global.player_global_location = self.transform.origin
 	# wrong place for this :shrug:
+	# CHANGES GAME PHASE -> SHOULD BE MOVED
 	var current_time = Time.get_ticks_msec();
+	# GAME PHASE SWITCHING
 	if current_time - Global.last_phase_change > 15*1000:
 		Global.switch_phase();# chase -> frightened -> chase
-	
+		print(Global.current_phase)
 	if self.transform.origin.z < -11.75:
 		self.transform.origin.z = 8.5;
 	if self.transform.origin.z > 8.75:

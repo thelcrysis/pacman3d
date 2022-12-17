@@ -2,7 +2,7 @@
 
 [ext_resource path="res://environment/MeshLibrary.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://environment/Steve.tscn" type="PackedScene" id=2]
-[ext_resource path="res://environment/Ghost.gd" type="Script" id=3]
+[ext_resource path="res://scripts/ghosts/blinky.gd" type="Script" id=3]
 [ext_resource path="res://environment/Ghost.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PhysicsMaterial" id=4]
@@ -60,6 +60,6 @@ scroll_active = false
 [node name="Steve" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.775146, 0, 0, 0, 0.775146, 0, 0, 0, 0.775146, 0.493281, 0.622339, 0.689588 )
 
-[node name="Ghost" parent="." instance=ExtResource( 4 )]
+[node name="Blinky" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.374, 0, 0, 0, 0.374, 0, 0, 0, 0.374, 0.517971, 0, -0.485453 )
 script = ExtResource( 3 )
