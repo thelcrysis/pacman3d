@@ -79,7 +79,7 @@ func switch_phase():
 		current_phase = (current_phase + 1)%2 # chase -> frightene -> chase
 		last_phase_change = Time.get_ticks_msec();
 		
-		fll.text = str(Global.get_food_left()) + " food left\n";
+		fll.text = str(Global.get_food_left()) + " food left\nGhost status:\n";
 		if Global.current_phase == Global.Phase.CHASE:
 			audiobad.play()
 			fll.text += "CHASE"
