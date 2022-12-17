@@ -3,23 +3,23 @@
 # Todo
 ### Main
 - [x] Portal
-  - [ ] [OPTIONAL] Portal grafika na ulazima
+  - [-] [OPTIONAL] Portal grafika na ulazima
 - [x] Dodati hranu
   - [x] napraviti model hrane
     - [x] [OPTIONAL] dodati da model svijetli - najvj vizualno ugodno `Food.tscn`
     - [x] dodati hranu na svim lokacijama -> `SpawnFood.gd`
-    - [ ] [OPTIONAL] smanjiti hranu ako bude lose izgledala s duhovima - npr. previse ih prekriva
+    - [x] [OPTIONAL] smanjiti hranu ako bude lose izgledala s duhovima - npr. previse ih prekriva
   - [x] handle kolizije igraca i hrane
 #
 #### Lik
 - [x] Character Movement
-  - [ ] [OPTIONAL] Promijeniti FOV i brzinu da se kretnja cini prirodnija
-- [ ] [OPTIONAL: nikad nije vidljivo] Model lika
+  - [-] [OPTIONAL] Promijeniti FOV i brzinu da se kretnja cini prirodnija
+- [-] [OPTIONAL: nikad nije vidljivo] Model lika
 - [x] Kamera iz POV
 #
 #### Tok igre
 - [x] Izmjena faza
-  - [ ] Promjena osvjetljenja ovisno o fazi
+  - [x] Promjena osvjetljenja ovisno o fazi
   - [x] Napraviti da faze traju razlicito - chase dulje od frighteneda
   - [x] Promjena ponasanja duhova ovisno o fazi
 - [x] Postavljanje scorea
@@ -38,7 +38,7 @@
   - [x] Duhovi prolaze kroz hranu
 - [x] Kolizija igraca i duhova
 - [x] Kolizija u ovisnosti s fazom
-- [ ] [OPTIONAL--] Mijenjaju boju pri promjeni faza
+- [x] [OPTIONAL--] Mijenjaju boju pri promjeni faza
 #
 
 #### Misc
