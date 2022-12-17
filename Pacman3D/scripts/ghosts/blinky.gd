@@ -42,6 +42,6 @@ func _process(delta):
 	if coll != null and get_last_slide_collision().collider.name == 'Steve':
 		if Global.current_phase == Global.Phase.CHASE:
 			Global.remove_life()
-	if Global.lives != 0:
+	if Global.lives != 0 and Global.get_food_left() > 0:
 		move_and_slide(direction);
 	

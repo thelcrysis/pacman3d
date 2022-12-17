@@ -41,9 +41,9 @@ func from_msec_to_humanreadable(msec_time):
 # Called when the node enters the scene tree for the first time.
 
 func visualize_lives():
-	var out = ""
+	var out = "Lives:"
 	if lives == 0:
-		return "end game"
+		return "End game"
 	for i in range(lives):
 		out += " <3"
 	return out
@@ -56,8 +56,7 @@ func increment():
 	if (self.get_food_left() == 0):
 		var end_time = Time.get_ticks_msec();
 		var delta = end_time - start_time;
-		print(from_msec_to_humanreadable(delta))
-		fll.text = from_msec_to_humanreadable(delta);
+		fll.text = from_msec_to_humanreadable(delta) + '\nWIN';
 
 func remove_life():
 	if last_death == null or Time.get_ticks_msec() - last_death > 3*1000:
