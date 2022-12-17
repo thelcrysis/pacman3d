@@ -3,6 +3,7 @@ const PF = preload("res://scripts/PathFinding.gd")
 
 var speed = 2
 func _ready():
+	var mat = self
 	pass # Replace with function body.
 
 func _process(delta):
@@ -39,7 +40,8 @@ func _process(delta):
 	# COLLISION HANDLING
 	var coll = get_last_slide_collision();
 	if coll != null and get_last_slide_collision().collider.name == 'Steve':
-		print("BLINKY GOTYA BITCH")
 		# CAUGHT PLAYER DETECTION
+		print("BLINKY GOTYA BITCH")
+		Global.remove_life()
 	move_and_slide(direction);
 	

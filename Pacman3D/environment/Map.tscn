@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://environment/MeshLibrary.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://environment/Steve.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/ghosts/blinky.gd" type="Script" id=3]
 [ext_resource path="res://environment/Ghost.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/ghosts/inky.gd" type="Script" id=5]
+[ext_resource path="res://scripts/ghosts/pinky.gd" type="Script" id=6]
+[ext_resource path="res://scripts/ghosts/clyde.gd" type="Script" id=7]
 
 [sub_resource type="PhysicsMaterial" id=4]
 
@@ -56,6 +58,20 @@ margin_top = 15.0
 margin_right = 124.0
 margin_bottom = 95.0
 rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/default_color = Color( 0.819608, 0.615686, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+scroll_active = false
+
+[node name="Helt" type="RichTextLabel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -98.0
+margin_top = 8.0
+margin_right = -38.0
+margin_bottom = 88.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/default_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 scroll_active = false
 
 [node name="Steve" parent="." instance=ExtResource( 2 )]
@@ -65,6 +81,19 @@ transform = Transform( 0.775146, 0, 0, 0, 0.775146, 0, 0, 0, 0.775146, 0.493281,
 transform = Transform( 0.374, 0, 0, 0, 0.374, 0, 0, 0, 0.374, 7.56442, 0, 7.48009 )
 script = ExtResource( 3 )
 
+[node name="Pinky" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.374, 0, 0, 0, 0.374, 0, 0, 0, 0.374, 7.56442, 0, -10.4386 )
+script = ExtResource( 6 )
+
 [node name="Inky" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.374, 0, 0, 0, 0.374, 0, 0, 0, 0.374, -11.4802, 0, 7.48009 )
 script = ExtResource( 5 )
+
+[node name="Clyde" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.374, 0, 0, 0, 0.374, 0, 0, 0, 0.374, -11.5552, 0, -10.5775 )
+script = ExtResource( 7 )
+
+[editable path="Blinky"]
+[editable path="Pinky"]
+[editable path="Inky"]
+[editable path="Clyde"]

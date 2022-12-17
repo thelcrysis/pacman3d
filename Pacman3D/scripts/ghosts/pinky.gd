@@ -16,21 +16,22 @@ func funky_abs(vec:Vector2):
 	return Vector2(x,y)
 	
 func calc_target(my_local_pos) -> Vector2:
-	# calculates inky target square
-	var blinky = Global.blinky_local_loc;
-	var player = Global.player_local_location;
 	
-	var target = Vector2(blinky.x + 2*(player.x-blinky.x),blinky.y + 2*(player.y-blinky.y))
-	if my_local_pos.distance_to(player) < 3:
+	# calculates pinky target square
+	var player = Global.player_local_location;
+	var target = Vector2(0,0);
+	if Global.player_direction == null:
 		target = player
 		return target
-	target = funky_abs(target);
+	target = Vector2(player.x+2*Global.player_direction.x,player.x+2*Global.player_direction.x)
+		
+	target = abs(target.x)
+	target = abs(target.y)
 	target.x = int(target.x) % 20
 	target.y = int(target.y) % 19
 	if PF.at(target) == 0: # wall tile
 		target = PF.getClosestFloorLocation(target)
 	return target
-	
 func _process(delta):
 	var loc = self.transform.origin
 	var direction;
@@ -39,7 +40,7 @@ func _process(delta):
 	Global.inky_local_loc = my_local_loc;
 	
 	var player_local_loc = Global.player_local_location
-	var home = Vector2(0,0) # left upper corner
+	var home = Vector2(19,18) # right lower corner
 	var goal_local_loc; 
 	var goal_global_loc;
 
@@ -65,7 +66,7 @@ func _process(delta):
 	var coll = get_last_slide_collision();
 	if coll != null and get_last_slide_collision().collider.name == 'Steve':
 		# CAUGHT PLAYER DETECTION
-		print("INKY GOTYA BITCH")
+		print("PINKY GOTYA BITCH")
 		Global.remove_life()
 	move_and_slide(direction);
 	

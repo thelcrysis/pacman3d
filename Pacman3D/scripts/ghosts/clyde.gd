@@ -15,20 +15,18 @@ func funky_abs(vec:Vector2):
 		y += 18
 	return Vector2(x,y)
 	
-func calc_target(my_local_pos) -> Vector2:
-	# calculates inky target square
-	var blinky = Global.blinky_local_loc;
-	var player = Global.player_local_location;
+func calc_target(my_local_pos, home) -> Vector2:
 	
-	var target = Vector2(blinky.x + 2*(player.x-blinky.x),blinky.y + 2*(player.y-blinky.y))
-	if my_local_pos.distance_to(player) < 3:
+	# calculates clyde target square
+	var player = Global.player_local_location;
+	var target = Vector2(0,0);
+	
+	target = player
+	
+	if target.distance_to(player) < 8:
+		target = home
+	if target.distance_to(player) < 8:
 		target = player
-		return target
-	target = funky_abs(target);
-	target.x = int(target.x) % 20
-	target.y = int(target.y) % 19
-	if PF.at(target) == 0: # wall tile
-		target = PF.getClosestFloorLocation(target)
 	return target
 	
 func _process(delta):
@@ -36,16 +34,16 @@ func _process(delta):
 	var direction;
 	
 	var my_local_loc = PF.getLocalFromGlobalCoord(loc)
-	Global.inky_local_loc = my_local_loc;
+	Global.clyde_local_loc = my_local_loc;
 	
 	var player_local_loc = Global.player_local_location
-	var home = Vector2(0,0) # left upper corner
+	var home = Vector2(0,18) # left lower corner
 	var goal_local_loc; 
 	var goal_global_loc;
 
 	if Global.current_phase == Global.Phase.CHASE:
-		goal_local_loc = calc_target(player_local_loc)
-		goal_global_loc = PF.getGlobalFromLocalCoord(calc_target(player_local_loc), loc.y);		
+		goal_local_loc = calc_target(player_local_loc, home)
+		goal_global_loc = PF.getGlobalFromLocalCoord(calc_target(player_local_loc, home), loc.y);		
 	elif Global.current_phase == Global.Phase.FRIGHTENED:
 		goal_local_loc = home
 		goal_global_loc = PF.getGlobalFromLocalCoord(home, loc.y)
@@ -60,12 +58,12 @@ func _process(delta):
 		direction = direction.normalized() * speed;
 	else:
 		direction = goal_global_loc - goal_global_loc;
-		
+	
 	# COLLISION HANDLING
 	var coll = get_last_slide_collision();
 	if coll != null and get_last_slide_collision().collider.name == 'Steve':
-		# CAUGHT PLAYER DETECTION
-		print("INKY GOTYA BITCH")
+		# CAUGHT PLAYER DETECTION		
+		print("CYLDE GOTYA BITCH")
 		Global.remove_life()
 	move_and_slide(direction);
 	
