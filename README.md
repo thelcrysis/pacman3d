@@ -20,6 +20,7 @@
 #### Tok igre
 - [x] Izmjena faza
   - [ ] Promjena osvjetljenja ovisno o fazi
+  - [ ] Napraviti da faze traju razlicito - chase dulje od frighteneda
   - [ ] Promjena ponasanja duhova ovisno o fazi
 - [x] Postavljanje scorea
 - [x] Detekcija kraja igre
