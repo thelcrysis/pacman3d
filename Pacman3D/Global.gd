@@ -6,6 +6,7 @@ onready var audiogood = get_node("/root/Map/goodsound")
 onready var audiodeath = get_node("/root/Map/death")
 
 
+onready var lightswitch = get_node("/root/Map/WorldLighting")
 var score = 0
 var N_food = 0
 var start_time = Time.get_ticks_msec();
@@ -43,9 +44,9 @@ func from_msec_to_humanreadable(msec_time):
 # Called when the node enters the scene tree for the first time.
 
 func visualize_lives():
-	var out = ""
+	var out = "Lives:"
 	if lives == 0:
-		return "end game"
+		return "End game"
 	for i in range(lives):
 		out += " <3"
 	return out
@@ -58,8 +59,7 @@ func increment():
 	if (self.get_food_left() == 0):
 		var end_time = Time.get_ticks_msec();
 		var delta = end_time - start_time;
-		print(from_msec_to_humanreadable(delta))
-		fll.text = from_msec_to_humanreadable(delta);
+		fll.text = from_msec_to_humanreadable(delta) + '\nWIN';
 
 func remove_life():
 	if last_death == null or Time.get_ticks_msec() - last_death > 3*1000:
@@ -79,15 +79,18 @@ func increment_life():
 	
 
 func switch_phase():
-	current_phase = (current_phase + 1)%2 # chase -> frightene -> chase
-	last_phase_change = Time.get_ticks_msec();
-	fll.text = str(Global.get_food_left()) + " food left\n";
-	if Global.current_phase == Global.Phase.CHASE:
-		audiobad.play()
-		fll.text += "CHASE"
-	elif Global.current_phase == Global.Phase.FRIGHTENED:
-		audiogood.play()
-		fll.text += "FRIGHTENED"
+	if Global.lives > 0 and Global.get_food_left() > 0:
+		lightswitch.switch_colorscheme()
+		current_phase = (current_phase + 1)%2 # chase -> frightene -> chase
+		last_phase_change = Time.get_ticks_msec();
+		
+		fll.text = str(Global.get_food_left()) + " food left\n";
+		if Global.current_phase == Global.Phase.CHASE:
+			audiobad.play()
+			fll.text += "CHASE"
+		elif Global.current_phase == Global.Phase.FRIGHTENED:
+			audiogood.play()
+			fll.text += "FRIGHTENED"
 			
 func get_score() -> int:
 	return score;

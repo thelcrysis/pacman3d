@@ -75,6 +75,12 @@ strafe_right={
 3d_physics/layer_3="Food"
 3d_physics/layer_4="Player"
 
+[navigation]
+
+3d/shadows/filter_mode=1
+3d/filters/anisotropic_filter_level=4
+3d/filters/msaa=0
+
 [physics]
 
 common/enable_pause_aware_picking=true
@@ -82,5 +88,8 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/subsurface_scattering/quality=2
+quality/shadows/filter_mode=2
+quality/filters/anisotropic_filter_level=8
+quality/filters/msaa=4
 quality/filters/use_fxaa=true
 environment/default_environment="res://default_env.tres"
