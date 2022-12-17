@@ -37,6 +37,7 @@
   - [ ] Clyde
   - [x] Duhovi prolaze kroz hranu
 - [x] Kolizija igraca i duhova
+- [ ] Kolizija u ovisnosti s fazom
 - [ ] [OPTIONAL--] Mijenjaju boju pri promjeni faza
 #
 
