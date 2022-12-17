@@ -1,8 +1,10 @@
 extends Node
 onready var fll = get_node("/root/Map/FoodLeftLabel")
 onready var helt = get_node("/root/Map/Helt")
-onready var audiogood = get_node("/root/Map/goodsound")
 onready var audiobad = get_node("/root/Map/badsound")
+onready var audiogood = get_node("/root/Map/goodsound")
+onready var audiodeath = get_node("/root/Map/death")
+
 
 var score = 0
 var N_food = 0
@@ -63,6 +65,8 @@ func remove_life():
 	if last_death == null or Time.get_ticks_msec() - last_death > 3*1000:
 		lives -= 1
 		last_death = Time.get_ticks_msec()
+	if audiodeath.playing == false:
+		audiodeath.play()
 	helt.text = visualize_lives()
 
 func increment_life():
