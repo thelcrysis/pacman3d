@@ -27,10 +27,11 @@
 #
 #### Duhovi
 - [x] Model duhova
-- [ ] Autonomno kretanje duhova
-- [ ] Postaviti prototype strategiju kretanja duhova (natjerati duha da se krece na bilo koji nacin, ali da je kretanje definirano unutar skripte)
+- [ ] Autonomno kretanje duhova (natjerati duha da se krece na bilo koji nacin, ali da je kretanje definirano unutar skripte)
+- [ ] Postaviti prototype strategiju kretanja duhova 
   - [ ] Implementirati duhove
-    - [ ] Duhovi prolaze kroz hranu
+    - [x] Duhovi prolaze kroz hranu
+- [ ] Implementirati strategije izvan GDscripta kako bi se mogle testirati
 - [ ] [OPTIONAL--] Mijenjaju boju pri promjeni faza
 #
 
