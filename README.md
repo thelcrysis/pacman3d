@@ -27,11 +27,15 @@
 #
 #### Duhovi
 - [x] Model duhova
-- [ ] Autonomno kretanje duhova (natjerati duha da se krece na bilo koji nacin, ali da je kretanje definirano unutar skripte)
-- [ ] Postaviti prototype strategiju kretanja duhova 
-  - [ ] Implementirati duhove
-    - [x] Duhovi prolaze kroz hranu
-- [ ] Implementirati strategije izvan GDscripta kako bi se mogle testirati
+- [x] Autonomno kretanje duhova (natjerati duha da se krece na bilo koji nacin, ali da je kretanje definirano unutar skripte)
+- [x] Postaviti prototype strategiju kretanja duhova 
+- [ ] Implementirati duhove
+  - [x] Blinky
+  - [ ] Inky
+  - [ ] Pinky
+  - [ ] Clyde
+  - [x] Duhovi prolaze kroz hranu
+- [x] Kolizija igraca i duhova
 - [ ] [OPTIONAL--] Mijenjaju boju pri promjeni faza
 #
 
