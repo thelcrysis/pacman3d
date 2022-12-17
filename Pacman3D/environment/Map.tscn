@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://environment/MeshLibrary.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://environment/Steve.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scripts/ghosts/inky.gd" type="Script" id=5]
 [ext_resource path="res://scripts/ghosts/pinky.gd" type="Script" id=6]
 [ext_resource path="res://scripts/ghosts/clyde.gd" type="Script" id=7]
+[ext_resource path="res://environment/WorldLighting.tscn" type="PackedScene" id=8]
 
 [sub_resource type="PhysicsMaterial" id=4]
 
@@ -102,6 +103,8 @@ script = ExtResource( 5 )
 [node name="Clyde" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.374, 0, 0, 0, 0.374, 0, 0, 0, 0.374, -11.5552, 0, -10.5775 )
 script = ExtResource( 7 )
+
+[node name="WorldLighting" parent="." instance=ExtResource( 8 )]
 
 [editable path="Blinky"]
 [editable path="Pinky"]
