@@ -1,17 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://environment/MeshLibrary.tres" type="MeshLibrary" id=1]
-[ext_resource path="res://scripts/Steve.gd" type="Script" id=2]
+[ext_resource path="res://environment/Steve.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/SpawnFood.gd" type="Script" id=3]
 [ext_resource path="res://environment/Ghost.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PhysicsMaterial" id=4]
-
-[sub_resource type="BoxShape" id=5]
-
-[sub_resource type="CapsuleShape" id=6]
-radius = 0.25
-height = 0.5
 
 [node name="Map" type="GridMap"]
 mesh_library = ExtResource( 1 )
@@ -30,24 +24,6 @@ __meta__ = {
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
 
-[node name="Steve" type="KinematicBody" parent="."]
-transform = Transform( 0.775146, 0, 0, 0, 0.775146, 0, 0, 0, 0.775146, 0.49984, 0.625743, 0 )
-script = ExtResource( 2 )
-
-[node name="Feet" type="CollisionShape" parent="Steve"]
-transform = Transform( 0.2, 0, 0, 0, 0.05, 0, 0, 0, 0.2, 0, -0.5, 0 )
-shape = SubResource( 5 )
-
-[node name="Body" type="CollisionShape" parent="Steve"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 6 )
-
-[node name="Pivot" type="Spatial" parent="Steve"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.112987, 0 )
-
-[node name="Camera" type="Camera" parent="Steve/Pivot"]
-fov = 55.8
-
 [node name="FoodLeftLabel" type="RichTextLabel" parent="."]
 margin_left = 15.0
 margin_top = 15.0
@@ -57,4 +33,8 @@ rect_scale = Vector2( 1.5, 1.5 )
 scroll_active = false
 
 [node name="Ghost" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.554107, 0.110487, -1.69644 )
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.554107, 0.110487, -3.97433 )
+collision_mask = 9
+
+[node name="Steve" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.775146, 0, 0, 0, 0.775146, 0, 0, 0, 0.775146, 0.493281, 0.622339, 0.689588 )
