@@ -2,30 +2,46 @@
 
 # Todo
 ### Main
-- [ ] Portal
-- [ ] Dodati hranu 
+- [x] Portal
+  - [ ] [OPTIONAL] Portal grafika na ulazima
+- [x] Dodati hranu
+  - [x] napraviti model hrane
+    - [ ] [OPTIONAL] dodati da model svijetli - najvj vizualno ugodno `Food.tscn`
+    - [x] dodati hranu na svim lokacijama -> `SpawnFood.gd`
+    - [ ] [OPTIONAL] smanjiti hranu ako bude lose izgledala s duhovima - npr. previse ih prekriva
+  - [x] handle kolizije igraca i hrane
 #
 #### Lik
 - [x] Character Movement
   - [ ] [OPTIONAL] Promijeniti FOV i brzinu da se kretnja cini prirodnija
-- [ ] Model lika
+- [ ] [OPTIONAL: nikad nije vidljivo] Model lika
 - [x] Kamera iz POV
 #
 #### Tok igre
-- [ ] Izmjena faza
+- [x] Izmjena faza
   - [ ] Promjena osvjetljenja ovisno o fazi
-- [ ] Postavljanje scorea
-- [ ] Detekcija kraja igre
+  - [ ] Napraviti da faze traju razlicito - chase dulje od frighteneda
+  - [ ] Promjena ponasanja duhova ovisno o fazi
+- [x] Postavljanje scorea
+- [x] Detekcija kraja igre
+  - [ ] [OPTIONAL] Odluciti sto napraviti po kraju igre (trenutno prikaze timer u kutu i tjt)
 #
 #### Duhovi
-- [ ] Model duhova
-- [ ] Autonomno kretanje duhova
-- [ ] Postaviti prototype strategiju kretanja duhova
-  - [ ] Implementirati duhove
+- [x] Model duhova
+- [x] Autonomno kretanje duhova (natjerati duha da se krece na bilo koji nacin, ali da je kretanje definirano unutar skripte)
+- [x] Postaviti prototype strategiju kretanja duhova 
+- [ ] Implementirati duhove
+  - [x] Blinky
+  - [x] Inky
+  - [ ] Pinky
+  - [ ] Clyde
+  - [x] Duhovi prolaze kroz hranu
+- [x] Kolizija igraca i duhova
+- [ ] Kolizija u ovisnosti s fazom
+- [ ] [OPTIONAL--] Mijenjaju boju pri promjeni faza
 #
 
-#### Optional
-- [ ] fixati poklapanje collision shapeova i mesh instancea na gridmapu
+#### Misc
 
 #
 
