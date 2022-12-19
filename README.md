@@ -5,7 +5,7 @@
 
 #### How to play
 - Movement - `W,A,S,D - move` and `Mouse - look`
-- You have `3 lives` as indicated by 3 hears in upper right corner
+- You have `3 lives` as indicated by 3 hearts in upper right corner
 - Game consists of two phases - `CHASE` (get touched by ghosts -> die) and `FRIGHTENED` (touch ghosts -> gain a life)
 - `Eat` all the food before you lose all three lives
 
