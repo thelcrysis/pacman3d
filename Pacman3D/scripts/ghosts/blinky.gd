@@ -30,6 +30,8 @@ func _process(delta):
 		# caluclate BFS path
 		if goal_global_loc.x < 0: goal_global_loc.x = 0
 		elif goal_global_loc.y < 0: goal_global_loc.y = 0
+		elif goal_global_loc.z < 0: goal_global_loc.z = 0
+		
 		if loc.x < 0: loc.x = 0
 		elif loc.y <0: loc.y = 0
 		elif loc.z <0: loc.z = 0

@@ -36,6 +36,7 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	var local = PF.getLocalFromGlobalCoord(self.transform.origin)
+	
 	Global.player_local_location = local;
 	Global.player_global_location = self.transform.origin
 	if Global.player_local_location != local:
