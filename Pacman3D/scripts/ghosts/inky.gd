@@ -1,7 +1,7 @@
 extends KinematicBody
 const PF = preload("res://scripts/PathFinding.gd")
 
-var speed = 2
+var speed = Global.ghost_speed;
 func _ready():
 	pass # Replace with function body.
 

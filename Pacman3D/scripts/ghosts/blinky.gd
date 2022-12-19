@@ -1,7 +1,7 @@
 extends KinematicBody
 const PF = preload("res://scripts/PathFinding.gd")
 
-var speed = 2
+var speed = Global.ghost_speed;
 func _ready():
 	var mat = self
 	pass # Replace with function body.
@@ -28,6 +28,8 @@ func _process(delta):
 	var goal;
 	if my_local_loc.distance_to(goal_local_loc) > 2:
 		# caluclate BFS path
+		if goal_global_loc.x < 0: goal_global_loc.x = 0
+		elif goal_global_loc.y < 0: goal_global_loc.y = 0
 		if loc.x < 0: loc.x = 0
 		elif loc.y <0: loc.y = 0
 		elif loc.z <0: loc.z = 0

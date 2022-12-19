@@ -7,7 +7,7 @@ const PF = preload("res://scripts/PathFinding.gd")
 var gravity = -30
 var max_speed = 4
 var mouse_sensitivity = 0.001  # radians/pixel
-
+var home = Vector2(12,13)
 var velocity = Vector3()
 
 # Called when the node enters the scene tree for the first time.
@@ -61,8 +61,8 @@ func _physics_process(delta):
 	var current_time = Time.get_ticks_msec();
 	# GAME PHASE SWITCHING
 	var wait = 0
-	if Global.last_phase_change == Global.Phase.CHASE:
-		wait = 5
+	if Global.current_phase == Global.Phase.CHASE:
+		wait = 20
 	else:
 		wait = 5
 	if current_time - Global.last_phase_change > wait*1000:
@@ -83,5 +83,6 @@ func _physics_process(delta):
 				Global.increment_life()
 		elif Global.current_phase == Global.Phase.CHASE:
 				Global.remove_life()
+				self.transform.origin = PF.getGlobalFromLocalCoord(home, self.transform.origin.y)
 	if Global.lives > 0 and Global.get_food_left() > 0:
 		velocity = move_and_slide(velocity, Vector3.UP, true)

@@ -6,6 +6,8 @@ onready var audiogood = get_node("/root/Map/goodsound")
 onready var audiodeath = get_node("/root/Map/death")
 
 
+var ghost_speed = 2
+
 onready var lightswitch = get_node("/root/Map/WorldLighting")
 var score = 0
 var N_food = 0
